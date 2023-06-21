@@ -162,7 +162,8 @@ All available options are documented here and can be set via `--log-opt KEY=VALU
 |`fpath`|/var/log/docker/docker_file_log_driver_default.log|File path of the log file inside /var/log|
 |`max-size`|10|size in mb of each log file|
 |`max-backups`|10|number of log file backups after `max-size` is reched|
-|`max-age`|100|number of days log files are kept in the file system before dleting|
+|`max-age`|100|number of days log files are kept in the file system before deleting|
+|`compress`|false|Determines if the rotated log files should be compressed using gzip|
 
 ## Uninstall
 
