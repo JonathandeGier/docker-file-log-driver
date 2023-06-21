@@ -154,6 +154,7 @@ func buildLogger(logCtx *logger.Info) *logrus.Logger {
     max_size := P(readWithDefault(logCtx.Config, "max-size", ""), 10)
     max_backups := P(readWithDefault(logCtx.Config, "max-backups", ""), 10)
     max_age := P(readWithDefault(logCtx.Config, "max-age", ""), 100)
+    compress := P(readWithDefault(logCtx.Config, "compress", ""), false)
 
     hook, err := rotatefilehook.NewRotateFileHook(rotatefilehook.RotateFileConfig{
         Filename: fpath,
@@ -162,6 +163,7 @@ func buildLogger(logCtx *logger.Info) *logrus.Logger {
         MaxAge: max_age,
         Level: logrus.DebugLevel,
         Formatter: new(logrus.JSONFormatter),
+	Compress: compress,
     })
 
     if err != nil {
